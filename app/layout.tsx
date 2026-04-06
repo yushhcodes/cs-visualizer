@@ -16,7 +16,6 @@ const geistMono = Geist_Mono({
 const SITE_URL = "https://visualizer.yushh.tech/";
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID as string;
 
-console.log("GA_ID:", GA_ID);
 
 export const metadata: Metadata = {
   // ── Core ──────────────────────────────────────────────────────
@@ -120,7 +119,6 @@ export default function RootLayout({
     >
       <head>
         <Script
-          async
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
         ></Script>
         <Script id="google-analytics" strategy="afterInteractive">
