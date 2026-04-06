@@ -1,26 +1,52 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #fafaf9;
+  --surface: #ffffff;
+  --surface-2: #f5f4f2;
+  --border: rgba(0,0,0,0.07);
+  --border-strong: rgba(0,0,0,0.12);
+  --text: #111110;
+  --text-2: #6b6a66;
+  --text-3: #9e9c97;
+  --accent: #1a1a18;
+  --accent-green: #16a34a;
+  --accent-green-bg: #f0fdf4;
+  --accent-green-border: #bbf7d0;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow: 0 4px 16px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.04);
+  --node-default: #f5f4f2;
+  --node-active: #16a34a;
+  --node-active-bg: #dcfce7;
+  --node-border: rgba(0,0,0,0.10);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', 'Instrument Sans', system-ui, sans-serif;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.75); }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+.fade-up   { animation: fadeUp 0.35s cubic-bezier(0.16,1,0.3,1) both; }
+.fade-up-1 { animation: fadeUp 0.35s 0.05s cubic-bezier(0.16,1,0.3,1) both; }
+.fade-up-2 { animation: fadeUp 0.35s 0.10s cubic-bezier(0.16,1,0.3,1) both; }
+.fade-up-3 { animation: fadeUp 0.35s 0.15s cubic-bezier(0.16,1,0.3,1) both; }
