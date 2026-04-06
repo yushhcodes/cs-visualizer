@@ -14,7 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 const SITE_URL = "https://visualizer.yushh.tech/";
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "";
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID as string;
+
+console.log("GA_ID:", GA_ID);
 
 export const metadata: Metadata = {
   // ── Core ──────────────────────────────────────────────────────
@@ -119,14 +121,14 @@ export default function RootLayout({
       <head>
         <Script
           async
-          src={`https://www.googletagmanager.com/gtag/js?id=G-${GA_ID}`}
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
         ></Script>
         <Script id="google-analytics" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-${GA_ID}');`}
+  gtag('config', '${GA_ID}');`}
         </Script>
         <link rel="icon" href="/icon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
